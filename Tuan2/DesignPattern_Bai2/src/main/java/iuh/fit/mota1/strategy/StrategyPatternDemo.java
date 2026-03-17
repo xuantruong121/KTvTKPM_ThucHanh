@@ -1,4 +1,4 @@
-package MoTa1.StrategyPattern;
+package iuh.fit.mota1.strategy;
 
 interface TaxStrategy {
     double calculateTax(double price);

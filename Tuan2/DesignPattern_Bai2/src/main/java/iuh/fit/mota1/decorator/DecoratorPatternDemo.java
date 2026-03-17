@@ -1,4 +1,4 @@
-package MoTa1.DecoratorPattern;
+package iuh.fit.mota1.decorator;
 
 interface Payment {
     double getAmount();

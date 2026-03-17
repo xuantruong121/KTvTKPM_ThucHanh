@@ -1,4 +1,4 @@
-package MoTa1.StatePattern;
+package iuh.fit.mota1.state;
 
 interface OrderState {
     void processOrder(OrderContext context);
