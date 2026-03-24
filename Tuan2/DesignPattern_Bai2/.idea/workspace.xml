@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27a47b25-bc39-46b9-959b-c96167b53792" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/iuh/fit/mota2/strategy/strategy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DesignPattern_Bai2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/src/main/java/MoTa1/DecoratorPattern/Decorator.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/src/main/java/MoTa1/DecoratorPattern/DecoratorPatternDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/src/main/java/MoTa1/KetLuan.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/src/main/java/MoTa1/StatePattern/State.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/src/main/java/MoTa1/StatePattern/StatePatternDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/src/main/java/MoTa1/StrategyPattern/Strategy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MoTa1/src/main/java/MoTa1/StrategyPattern/StrategyPatternDemo.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,21 +22,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "xuantruong121"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;xuantruong121&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/xuantruong121/KTvTKPM_ThucHanh.git",
-    "accountId": "7e6d4452-fd3d-43fc-9467-15731b78bd92"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/xuantruong121/KTvTKPM_ThucHanh.git&quot;,
+    &quot;accountId&quot;: &quot;7e6d4452-fd3d-43fc-9467-15731b78bd92&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3B4j5jV1HoHUvR8SV0c1JHkAC5f" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -71,14 +48,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.DecoratorPatternDemo.executor": "Run",
+    "Application.DecoratorPaymentDemo.executor": "Run",
     "Application.DecoratorTaxDemo.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.StatePaymentDemo.executor": "Run",
     "Application.StateTaxDemo.executor": "Run",
     "Application.StrategyPaymentDemo.executor": "Run",
     "Application.StrategyTaxDemo.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
@@ -191,7 +171,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773755059580</updated>
-      <workItem from="1773755061066" duration="1815000" />
+      <workItem from="1773755061066" duration="1907000" />
+      <workItem from="1774358682596" duration="817000" />
     </task>
     <servers />
   </component>
