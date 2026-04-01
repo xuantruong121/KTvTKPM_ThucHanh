@@ -1,0 +1,17 @@
+{
+  "name": "bai6-multistage-node",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "typescript": "^5.8.0"
+  }
+}
+
