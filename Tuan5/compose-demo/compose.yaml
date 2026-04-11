@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    ports:
+      - "${APP_PORT}:5000"
+    environment:
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      # Giúp Flask/Werkzeug phát hiện đổi file qua bind mount (đặc biệt trên Windows + Docker Desktop)
+      WATCHDOG_FORCE_POLLING: "true"
+    volumes:
+      - .:/code
+    develop:
+      watch:
+        - action: rebuild
+          path: requirements.txt
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
