@@ -1,0 +1,67 @@
+services:
+  user-service:
+    build:
+      context: ./user-service
+    environment:
+      - JWT_SECRET=${JWT_SECRET:-dev-secret-change-me-dev-secret-change-me}
+    ports:
+      - "8081:8081"
+
+  food-service:
+    build:
+      context: ./food-service
+    ports:
+      - "8082:8082"
+
+  order-service:
+    build:
+      context: ./order-service
+    environment:
+      - USER_SERVICE_URL=http://user-service:8081
+      - FOOD_SERVICE_URL=http://food-service:8082
+      - SERVICE_TOKEN=${SERVICE_TOKEN:-service-token}
+    ports:
+      - "8083:8083"
+    depends_on:
+      - user-service
+      - food-service
+
+  payment-service:
+    build:
+      context: ./payment-service
+    environment:
+      - ORDER_SERVICE_URL=http://order-service:8083
+      - SERVICE_TOKEN=${SERVICE_TOKEN:-service-token}
+    ports:
+      - "8084:8084"
+    depends_on:
+      - order-service
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    environment:
+      - FRONTEND_ORIGIN=${FRONTEND_ORIGIN:-http://localhost:3000}
+      - USER_SERVICE_URL=http://user-service:8081
+      - FOOD_SERVICE_URL=http://food-service:8082
+      - ORDER_SERVICE_URL=http://order-service:8083
+      - PAYMENT_SERVICE_URL=http://payment-service:8084
+      - JWT_SECRET=${JWT_SECRET:-dev-secret-change-me-dev-secret-change-me}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - user-service
+      - food-service
+      - order-service
+      - payment-service
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8080
+    ports:
+      - "3000:80"
+    depends_on:
+      - api-gateway
+
