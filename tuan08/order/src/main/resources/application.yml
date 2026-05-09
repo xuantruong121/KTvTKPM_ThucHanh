@@ -1,0 +1,23 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: order-service
+  data:
+    redis:
+      host: ${REDIS_HOST:192.168.137.70}
+      port: 6379
+      connect-timeout: 5000ms
+      timeout: 5000ms
+
+# CORS - cho phep Frontend goi API
+cors:
+  allowed-origins: "*"
+
+# Inventory Service URL (PU4)
+services:
+  inventory:
+    url: http://${INVENTORY_HOST:192.168.137.70}:8084
+  cart:
+    url: http://${CART_HOST:localhost}:8082

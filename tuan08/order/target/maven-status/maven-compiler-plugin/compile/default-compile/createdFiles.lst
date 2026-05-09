@@ -1,0 +1,13 @@
+com\flashsale\orderservice\config\RedisConfig.class
+iuh\fit\cartpu\entity\CartItem.class
+com\flashsale\orderservice\config\CorsConfig.class
+com\flashsale\orderservice\controller\OrderController.class
+com\flashsale\orderservice\repository\CartRepository.class
+com\flashsale\orderservice\model\UserCart.class
+com\flashsale\orderservice\model\CartItem.class
+com\flashsale\orderservice\config\RestTemplateConfig.class
+com\flashsale\orderservice\OrderServiceApplication.class
+iuh\fit\inventoryservice\entity\Product.class
+iuh\fit\cartpu\entity\UserCart.class
+com\flashsale\orderservice\service\OrderService.class
+com\flashsale\orderservice\model\Order.class
