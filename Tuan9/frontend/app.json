@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Travel Booking",
+    "slug": "travel-booking",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"],
+    "userInterfaceStyle": "light"
+  }
+}
+
