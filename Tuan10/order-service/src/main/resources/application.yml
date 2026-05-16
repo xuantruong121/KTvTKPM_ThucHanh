@@ -62,7 +62,7 @@ resilience4j:
         waitDurationInOpenState: 50s
         failureRateThreshold: 50
         eventConsumerBufferSize: 10
-        recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+        # recordFailurePredicate: your.package.CustomPredicate  ← uncomment & replace with your class
 
   # =============================================
   # Resilience4j – Retry
@@ -71,14 +71,15 @@ resilience4j:
     instances:
       backendA:
         maxAttempts: 3
-        waitDuration: 10s
+        waitDuration: 1s          # gốc: 10s – giảm để demo nhanh hơn
         enableExponentialBackoff: true
         exponentialBackoffMultiplier: 2
         retryExceptions:
+          - java.lang.RuntimeException          # thêm để demo hoạt động
           - org.springframework.web.client.HttpServerErrorException
           - java.io.IOException
         ignoreExceptions:
-          - io.github.robwin.exception.BusinessException
+          - iuh.fit.orderservice.resilience.BusinessException
       backendB:
         maxAttempts: 3
         waitDuration: 10s
@@ -86,7 +87,7 @@ resilience4j:
           - org.springframework.web.client.HttpServerErrorException
           - java.io.IOException
         ignoreExceptions:
-          - io.github.robwin.exception.BusinessException
+          - iuh.fit.orderservice.resilience.BusinessException
 
   # =============================================
   # Resilience4j – Bulkhead (Semaphore)

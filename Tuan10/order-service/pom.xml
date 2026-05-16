@@ -63,15 +63,22 @@
 			<artifactId>spring-dotenv</artifactId>
 			<version>5.1.0</version>
 		</dependency>
-		<!-- Resilience4j -->
+		<!-- Resilience4j – managed by Spring Cloud BOM (correct transitive deps) -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 		</dependency>
+		<!-- resilience4j annotations: @Retry, @RateLimiter, @Bulkhead, @TimeLimiter -->
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-spring-boot3</artifactId>
 		</dependency>
+		<!-- RxJava3 needed by resilience4j fallback auto-config -->
+		<dependency>
+			<groupId>io.reactivex.rxjava3</groupId>
+			<artifactId>rxjava</artifactId>
+		</dependency>
+
 		<!-- Actuator - required for health indicators -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
