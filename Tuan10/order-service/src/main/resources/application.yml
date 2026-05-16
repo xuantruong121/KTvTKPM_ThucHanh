@@ -1,0 +1,139 @@
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:h2:mem:orderdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8083
+  address: 0.0.0.0
+
+clients:
+  user-service:
+    url: ${USER_SERVICE_URL:http://localhost:8081}
+  food-service:
+    url: ${FOOD_SERVICE_URL:http://localhost:8082}
+
+internal:
+  service-token: ${SERVICE_TOKEN:service-token}
+
+# =============================================
+# Actuator – expose health + resilience4j info
+# =============================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,circuitbreakers,retries,ratelimiters,bulkheads
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+    ratelimiters:
+      enabled: true
+
+# =============================================
+# Resilience4j – Circuit Breaker
+# =============================================
+resilience4j:
+  circuitbreaker:
+    instances:
+      backendA:
+        registerHealthIndicator: true
+        slidingWindowSize: 100
+      backendB:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: TIME_BASED
+        minimumNumberOfCalls: 20
+        waitDurationInOpenState: 50s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        recordFailurePredicate: io.github.robwin.exception.RecordFailurePredicate
+
+  # =============================================
+  # Resilience4j – Retry
+  # =============================================
+  retry:
+    instances:
+      backendA:
+        maxAttempts: 3
+        waitDuration: 10s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+        ignoreExceptions:
+          - io.github.robwin.exception.BusinessException
+      backendB:
+        maxAttempts: 3
+        waitDuration: 10s
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+        ignoreExceptions:
+          - io.github.robwin.exception.BusinessException
+
+  # =============================================
+  # Resilience4j – Bulkhead (Semaphore)
+  # =============================================
+  bulkhead:
+    instances:
+      backendA:
+        maxConcurrentCalls: 10
+      backendB:
+        maxWaitDuration: 10ms
+        maxConcurrentCalls: 20
+
+  # =============================================
+  # Resilience4j – Thread-Pool Bulkhead
+  # =============================================
+  thread-pool-bulkhead:
+    instances:
+      backendC:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 1
+        writableStackTraceEnabled: true
+
+  # =============================================
+  # Resilience4j – Rate Limiter
+  # =============================================
+  ratelimiter:
+    instances:
+      backendA:
+        limitForPeriod: 10
+        limitRefreshPeriod: 1s
+        timeoutDuration: 0
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 100
+      backendB:
+        limitForPeriod: 6
+        limitRefreshPeriod: 500ms
+        timeoutDuration: 3s
+
+  # =============================================
+  # Resilience4j – Time Limiter
+  # =============================================
+  timelimiter:
+    instances:
+      backendA:
+        timeoutDuration: 2s
+        cancelRunningFuture: true
+      backendB:
+        timeoutDuration: 1s
+        cancelRunningFuture: false
